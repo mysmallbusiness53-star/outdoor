@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | SOLARA Outdoor</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="announcement-bar">We typically respond within 1 business day</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">S</div> SOLARA</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count" style="display:none">0</span></a>
+        <div class="mobile-menu-btn" id="menuBtn"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p><strong>Email:</strong> <a href="mailto:hello@solara-outdoor.co.za">hello@solara-outdoor.co.za</a></p>
+      <p style="font-size:0.85rem;color:var(--medium-grey)">[Replace with your actual business email]</p>
+      <p style="margin-top:16px"><strong>Telephone:</strong> [Your phone number]</p>
+      <p><strong>WhatsApp:</strong> [Your WhatsApp number]</p>
+      <p style="margin-top:16px"><strong>Address:</strong><br>[Street Address]<br>[City, Province, Postal Code]<br>South Africa</p>
+      <p style="margin-top:16px"><strong>Business Hours:</strong><br>Monday – Friday: 09:00 – 17:00<br>Saturday: 09:00 – 13:00<br>Sunday & Public Holidays: Closed</p>
+      <p style="margin-top:24px;font-size:0.85rem;color:var(--medium-grey)"><em>All contact details above are placeholders. Update with your real business information.</em></p>
+    </div>
+    <div>
+      <h3 style="font-family:var(--font-heading);font-size:1.3rem;margin-bottom:20px;font-weight:500">Send a Message</h3>
+      <form id="contactForm" onsubmit="return handleContact(event)">
+        <div class="form-group">
+          <label>Name *</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" name="subject">
+        </div>
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p style="font-size:0.8rem;color:var(--medium-grey);margin-top:12px">Form submissions require a backend or email service (e.g. Formspree, EmailJS, or your own server) to be configured.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom"><p>&copy; 2026 SOLARA Outdoor.</p></div>
+  </footer>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mainNav').classList.toggle('open'));
+    function handleContact(e) {
+      e.preventDefault();
+      showToast('Message received (demo). Configure email backend to enable real delivery.');
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>

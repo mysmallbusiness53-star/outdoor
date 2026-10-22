@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All | SOLARA Outdoor</title>
+  <meta name="description" content="Browse our complete collection of premium garden tools, lawn care, pool equipment and outdoor essentials.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="announcement-bar">Free delivery on orders over R2 000 · Quality outdoor essentials</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">S</div> SOLARA</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="shop.html?cat=garden-tools">Garden</a>
+        <a href="shop.html?cat=lawn-care">Lawn</a>
+        <a href="shop.html?cat=pool-care">Pool</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" aria-label="Cart">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" style="display:none">0</span>
+        </a>
+        <div class="mobile-menu-btn" id="menuBtn"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <h1>The Collection</h1>
+    <p>Premium outdoor essentials, thoughtfully curated</p>
+  </div>
+
+  <div class="shop-layout">
+    <aside class="shop-sidebar">
+      <h3>Categories</h3>
+      <div class="filter-list" id="filterList"></div>
+    </aside>
+    <div>
+      <div class="shop-toolbar">
+        <span id="resultCount"></span>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+      <div class="product-grid" id="shopGrid"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><div class="logo-icon">S</div> SOLARA</a>
+        <p>Premium outdoor living essentials for the modern South African home.</p>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><a href="shop.html">All Products</a><a href="shop.html?cat=garden-tools">Garden Tools</a><a href="shop.html?cat=lawn-care">Lawn Care</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="faq.html">FAQ</a></div>
+      <div class="footer-col"><h4>Policies</h4><a href="returns.html">Returns</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 SOLARA Outdoor. Prices in ZAR.</p></div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mainNav').classList.toggle('open'));
+
+    const params = new URLSearchParams(location.search);
+    let currentCat = params.get('cat') || 'all';
+    let currentSort = 'featured';
+
+    function renderFilters() {
+      document.getElementById('filterList').innerHTML = categories.map(c =>
+        `<a data-cat="${c.id}" class="${c.id === currentCat ? 'active' : ''}">${c.name}</a>`
+      ).join('');
+      document.querySelectorAll('#filterList a').forEach(a => {
+        a.addEventListener('click', () => {
+          currentCat = a.dataset.cat;
+          history.replaceState(null, '', currentCat === 'all' ? 'shop.html' : `shop.html?cat=${currentCat}`);
+          renderFilters();
+          renderProducts();
+        });
+      });
+    }
+
+    function renderProducts() {
+      let list = getProductsByCategory(currentCat);
+      if (currentSort === 'price-asc') list = [...list].sort((a,b) => a.price - b.price);
+      else if (currentSort === 'price-desc') list = [...list].sort((a,b) => b.price - a.price);
+      else if (currentSort === 'name') list = [...list].sort((a,b) => a.name.localeCompare(b.name));
+      else list = [...list].sort((a,b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+      document.getElementById('resultCount').textContent = `${list.length} product${list.length !== 1 ? 's' : ''}`;
+      document.getElementById('shopGrid').innerHTML = list.map(p => {
+        const badge = p.newArrival ? '<span class="product-badge new">New</span>' : '';
+        const compare = p.comparePrice ? `<span class="price-compare">${formatPrice(p.comparePrice)}</span>` : '';
+        return `<article class="product-card">
+          <div class="product-card-image">${badge}<a href="product.html?id=${p.id}"><img src="${p.images[0]}" alt="${p.name}" loading="lazy"></a></div>
+          <div class="product-card-body">
+            <p class="product-card-category">${p.categoryName}</p>
+            <h3 class="product-card-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+            <div class="product-card-price"><span class="price-current">${formatPrice(p.price)}</span>${compare}</div>
+            <button class="btn btn-primary btn-sm" onclick="addToCart('${p.id}')">Add to Cart</button>
+          </div>
+        </article>`;
+      }).join('');
+    }
+
+    document.getElementById('sortSelect').addEventListener('change', e => {
+      currentSort = e.target.value;
+      renderProducts();
+    });
+
+    renderFilters();
+    renderProducts();
+  </script>
+</body>
+</html>

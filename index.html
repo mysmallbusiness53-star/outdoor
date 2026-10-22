@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLARA Outdoor | Premium Garden, Lawn & Pool Essentials</title>
+  <meta name="description" content="Discover premium outdoor living products. Professional garden tools, autonomous lawn care, pool cleaners and more. Delivered across South Africa.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%23C9A96E' stroke-width='4'/><text x='50' y='62' text-anchor='middle' font-size='40' font-family='Georgia' fill='%23C9A96E'>S</text></svg>">
+</head>
+<body>
+
+  <!-- Announcement -->
+  <div class="announcement-bar">
+    Free delivery on orders over R2 000 &nbsp;·&nbsp; Quality outdoor essentials for the modern home
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">S</div>
+        SOLARA
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="shop.html?cat=garden-tools">Garden</a>
+        <a href="shop.html?cat=lawn-care">Lawn</a>
+        <a href="shop.html?cat=pool-care">Pool</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="shop.html" aria-label="Search" title="Search">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+        <a href="cart.html" aria-label="Cart" title="Shopping Cart">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" style="display:none">0</span>
+        </a>
+        <div class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('images/Sa5bd26851d5a49b0921e4a0e9a8575dcd.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Premium Outdoor Living</p>
+      <h1>Cultivate Excellence.<br>Live Beautifully.</h1>
+      <p>Curated garden tools, intelligent lawn care and refined outdoor essentials designed for the discerning homeowner.</p>
+      <a href="shop.html" class="btn btn-primary">Shop the Collection</a>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Explore</p>
+        <h2>Shop by Category</h2>
+        <p>Thoughtfully selected products for every aspect of outdoor living.</p>
+      </div>
+      <div class="category-grid">
+        <a href="shop.html?cat=garden-tools" class="category-card">
+          <img src="images/H3e55ec1d0cd64b558a9389f2e577ecd6H.jpg" alt="Garden Tools">
+          <div class="category-card-overlay"><h3>Garden Tools</h3></div>
+        </a>
+        <a href="shop.html?cat=lawn-care" class="category-card">
+          <img src="images/Sa5bd26851d5a49b0921e4a0e9a8575dcd.jpg" alt="Lawn Care">
+          <div class="category-card-overlay"><h3>Lawn Care</h3></div>
+        </a>
+        <a href="shop.html?cat=pool-care" class="category-card">
+          <img src="images/H1f3d0fb70c554147920c12060a2ade58I.jpg" alt="Pool Care">
+          <div class="category-card-overlay"><h3>Pool Care</h3></div>
+        </a>
+        <a href="shop.html?cat=outdoor-fun" class="category-card">
+          <img src="images/704731973_122119497633244690_1762907833678368150_n.jpg" alt="Outdoor Fun">
+          <div class="category-card-overlay"><h3>Outdoor Fun</h3></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Curated Selection</p>
+        <h2>Featured Products</h2>
+        <p>Our most sought-after pieces, chosen for quality and design.</p>
+      </div>
+      <div class="product-grid" id="featuredGrid"></div>
+      <div class="text-center mt-40">
+        <a href="shop.html" class="btn btn-outline-dark">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="section brand-story">
+    <div class="section-inner">
+      <div class="brand-story-grid">
+        <div class="brand-story-content">
+          <p class="section-eyebrow">Our Philosophy</p>
+          <h2>Where Craftsmanship Meets the Outdoors</h2>
+          <p>At SOLARA, we believe the outdoor spaces of a home deserve the same considered attention as its interiors. Every product we offer is selected for durability, refined design and genuine performance.</p>
+          <p>From professional-grade garden tools to intelligent lawn systems, our collection supports a lifestyle of quiet luxury and practical elegance.</p>
+          <a href="about.html" class="btn btn-gold-outline" style="margin-top: 12px;">Discover Our Story</a>
+        </div>
+        <div class="brand-story-image">
+          <img src="images/Hc1f835aaec7441aea4278bc959989316s.jpg" alt="SOLARA Garden Collection">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Just Arrived</p>
+        <h2>New Arrivals</h2>
+      </div>
+      <div class="product-grid" id="newGrid"></div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section newsletter">
+    <div class="section-inner">
+      <p class="section-eyebrow">Stay Informed</p>
+      <h2>Join the SOLARA Circle</h2>
+      <p>Receive exclusive offers, seasonal guides and new product announcements.</p>
+      <form class="newsletter-form" id="newsletterForm" onsubmit="return handleNewsletter(event)">
+        <input type="email" placeholder="Your email address" required aria-label="Email">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-consent">By subscribing you agree to receive marketing emails. You may unsubscribe at any time. See our <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">S</div>
+          SOLARA
+        </a>
+        <p>Premium outdoor living essentials for the modern South African home. Quality, design and reliability in every product.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html?cat=garden-tools">Garden Tools</a>
+        <a href="shop.html?cat=lawn-care">Lawn Care</a>
+        <a href="shop.html?cat=pool-care">Pool Care</a>
+        <a href="shop.html?cat=power-tools">Power Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping & Delivery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <a href="returns.html">Returns & Refunds</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SOLARA Outdoor. All rights reserved. &nbsp;|&nbsp; Prices displayed in South African Rand (ZAR). &nbsp;|&nbsp; [Edit with your business registration details]</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Mobile menu
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mainNav').classList.toggle('open');
+    });
+
+    // Render product cards
+    function renderCard(p) {
+      const badge = p.newArrival ? '<span class="product-badge new">New</span>' : (p.featured ? '<span class="product-badge">Featured</span>' : '');
+      const compare = p.comparePrice ? `<span class="price-compare">${formatPrice(p.comparePrice)}</span>` : '';
+      return `
+        <article class="product-card">
+          <div class="product-card-image">
+            ${badge}
+            <a href="product.html?id=${p.id}"><img src="${p.images[0]}" alt="${p.name}" loading="lazy"></a>
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-category">${p.categoryName}</p>
+            <h3 class="product-card-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+            <div class="product-card-price">
+              <span class="price-current">${formatPrice(p.price)}</span>
+              ${compare}
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="addToCart('${p.id}')">Add to Cart</button>
+          </div>
+        </article>`;
+    }
+
+    document.getElementById('featuredGrid').innerHTML = getFeaturedProducts().map(renderCard).join('');
+    document.getElementById('newGrid').innerHTML = getNewArrivals().map(renderCard).join('');
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('Thank you for subscribing. (Configure email service to activate.)');
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
